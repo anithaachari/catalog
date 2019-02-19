@@ -1,6 +1,6 @@
-Item Catalog Web App
+## Item Catalog Web App
 
-##By Kuduthuru Anitha This web app is a project for the Udacity FSND Course.
+## By Kuduthuru Anitha This web app is a project for the Udacity FSND Course.
 
 About
 
@@ -11,58 +11,34 @@ In This Project
 This project has one main Python module project.py which runs the Flask application. A SQL database is created using the database_setup.py module and you can populate the database with test data using hoteldata.py. The Flask application uses stored HTML templates in the templates folder to build the front-end of the application.
 
 Skills Required
-
 Python
-
 HTML
-
 CSS
-
 OAuth
-
 Flask Framework
-
 sqlalchemy
-
 Installation
-
 There are some dependancies and a few instructions on how to run the application. Seperate instructions are provided to get GConnect working also.
-
 Dependencies
-
 Vagrant
-
 Udacity Vagrantfile
-
 VirtualBox
-
 How to Install
-
 Install Vagrant & VirtualBox
-
 Clone the Udacity Vagrantfile
-
 Go to Vagrant directory and either clone this repo or download and place zip here
-
 Launch the Vagrant VM (vagrant up)
-
 Log into Vagrant VM (vagrant ssh)
-
 Navigate to cd /vagrant as instructed in terminal
 
 The app imports requests which is not on this vm. Run pip install requests
 Or you can simply Install the dependency libraries (Flask, sqlalchemy, requests,psycopg2 and oauth2client) by running pip install -r 
 requirements.txt
 
-
 Setup application database python/myhotel2/database_setup.py
-
 *Insert sample data python/myhotel2/hoteldata.py
-
 Run application using python /myhotel2/project.py
-
 Access the application locally using http://localhost:8000
-
 *Optional step(s)
 
 Using Google Login
