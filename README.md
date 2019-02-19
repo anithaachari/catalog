@@ -1,28 +1,32 @@
 ## Item Catalog Web App
 
-## By Kuduthuru Anitha This web app is a project for the Udacity FSND Course.
+# By Kuduthuru Anitha This web app is a project for the Udacity FSND Course.
 
 About
 
 This project is a RESTful web application utilizing the Flask framework which accesses a SQL database that populates hotels and hotelmenus. OAuth2 provides authentication for further CRUD functionality on the application. Currently OAuth2 is implemented for Google Accounts.
 
-In This Project
+# In This Project
 
 This project has one main Python module project.py which runs the Flask application. A SQL database is created using the database_setup.py module and you can populate the database with test data using hoteldata.py. The Flask application uses stored HTML templates in the templates folder to build the front-end of the application.
 
 Skills Required
-Python
-HTML
-CSS
-OAuth
-Flask Framework
-sqlalchemy
+1.Python
+2.HTML
+3.CSS
+4.OAuth
+5.Flask Framework
+6.sqlalchemy
+
 Installation
+
 There are some dependancies and a few instructions on how to run the application. Seperate instructions are provided to get GConnect working also.
+
 Dependencies
 Vagrant
 Udacity Vagrantfile
 VirtualBox
+
 How to Install
 Install Vagrant & VirtualBox
 Clone the Udacity Vagrantfile
@@ -32,12 +36,16 @@ Log into Vagrant VM (vagrant ssh)
 Navigate to cd /vagrant as instructed in terminal
 
 The app imports requests which is not on this vm. Run pip install requests
+
 Or you can simply Install the dependency libraries (Flask, sqlalchemy, requests,psycopg2 and oauth2client) by running pip install -r 
 requirements.txt
 
 Setup application database python/myhotel2/database_setup.py
+
 *Insert sample data python/myhotel2/hoteldata.py
+
 Run application using python /myhotel2/project.py
+
 Access the application locally using http://localhost:8000
 *Optional step(s)
 
@@ -86,6 +94,6 @@ Hotel menu JSON: /hotel/<int:hotel_id>/menu/JSON - Displays menus of specific ho
 Hotel Menu JSON:/hotel/<int:hotel_id>/menu/<int:menu_id>/JSON  - Displays the menu of specific hotel in hotels.
 
 
-Miscellaneous
+# Miscellaneous
 
 This project is inspiration from gmawji.
