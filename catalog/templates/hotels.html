@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+  </script>
+<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+	<style>
+	body{
+
+		background-image: url('http://avante.biz/wp-content/uploads/Background-Pics/Background-Pics-017.jpg');
+    background-size: 100%;
+	}
+.sidenav{
+  height:100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top:65px;
+  left: 0;
+  background-image: url('http://www.pxwall.com/wp-content/uploads/2018/11/Blue-Space-4K-Wallpaper-Download.png');
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.sidenav a{
+	 padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  color: #818181;
+  display: block;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.navbar-default{
+			background-color: grey;
+           }
+.text{
+	 border-style:double;
+	height:300px;
+	width:350px;
+   border-radius:20px;
+   padding: 10px;
+   font-family: 
+}
+.col-sm-4{
+ padding: 20px;
+
+}
+.row{
+  padding: 10px;
+}
+.picture{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	padding-top:10%;
+}
+div.a{
+	display: inline-block;
+}
+.glyphicon-edit{
+  color: white;
+}
+.glyphicon-trash{
+  color: white;
+}
+.main{
+  margin-left: 360px;
+}
+h1.a1{
+  display: inline;
+
+}
+.box{
+color: red;
+width:600px;
+height:40px;
+border-style:outset;
+border-color: grey;
+text-align: center;
+}
+
+</style>
+</head>
+ <body>
+
+  	<nav class="navbar navbar-default navbar-fixed-top">
+		 <div class="container-fluid">
+			<div class="navbar-header">
+        <img src="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3" style="height: 70px;width: 80px;border-radius: 30px;">
+<h1 class="a1" style="color:white;font-size: 50px;">Hotels</h1>
+</div>
+	<ul class="nav navbar-nav navbar-right">
+		{% if 'username' in session %}
+        <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="{{session.username,session.email}}"><img src="{{session.picture}}" class="picture"></a></li>
+		<li><a href="{{url_for('disconnect')}}"><button type=button class="btn btn-warning">Logout</button></a></li>
+		<li><a href="{{url_for('newHotel')}}"><button type=button class="btn btn-warning">new Hotel</button></a></li>
+		{% else %}
+    <li><a href="{{url_for('showLogin')}}"><button type="button" class="btn btn-warning">Login</button></a></li>
+    {% endif %}
+  </ul>
+</div>
+</nav>
+   <script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+<div class="sidenav">
+	{% for hotel in hotels %}
+	<table class="table">
+		<thead>
+		<tr>
+	<td><a href="{{url_for('showHotelMenu',hotel_id=hotel.id)}}"><p style="color:white;font-family:italic;">{{hotel.name}}</p></a></td>
+	{% if 'username' in session %}
+	<td><a href="{{url_for('editHotel',hotel_id=hotel.id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+   <td><a href="{{url_for('deleteHotel',hotel_id=hotel.id)}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+{% endif %}
+</tr>
+</thead>
+</table>
+		{% endfor %}
+</div>
+<div class="main" style="margin-top: 100px;">
+  <div class = 'flash'>
+    
+          {% with messages = get_flashed_messages() %}
+      {% if messages %}          
+    
+        {% for message in messages %}
+           <strong> <div class="box"><h4>{{ message }}</h4></div></strong>
+        {% endfor %}
+      
+        {% endif %}
+    {% endwith %}
+</div>
+	{% block content %}
+	{% endblock content %}
+</div>
+</body>
+</html>

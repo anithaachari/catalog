@@ -1,0 +1,33 @@
+{% include 'hotels.html' %}
+<div class="main">
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+		<td><h1 style="color: brown;font-family: sans-serif;">{{ hotel.name }}</h1></td>
+    <td></td>
+    <td></td>
+	{% if 'username' in session %}
+   <td><a href="{{url_for('newHotelMenu',hotel_id=hotel.id)}}"><h3 style="text-align:right;"><button type="button" class="btn btn-info">Create new HotelMenu</button></h3></a></td>
+  {% endif %}
+</tr>
+</thead>
+</table>
+<div class="row">
+{% for i in hotelmenu %}
+<div class="col-sm-5">
+<div class="text">
+   <p><h2 style="color:darkblue;text-align: center;border-bottom: dotted;font-family: cursive;">{{i.name}}</h2></p>
+   <p><h4 style="color: green;font-family: monospace;"><b>Price:</b>{{i.price}}</h4></p>
+   <p><h4 style="color:green;font-family: monospace;"><b>Description:</b>{{i.description}}</h4></p>
+   <p><h4 style="color: green;font-family: monospace;"><b>Address:</b>{{i.Address}}</h4><br></p>
+   {% if 'username' in session %}
+  <a href="{{url_for('editHotelMenu',hotel_id=hotel.id,menu_id=i.id)}}"><button type="button" class="btn btn-default">Edit</button></a>
+   <a href="{{url_for('deleteHotelMenu',hotel_id=hotel.id,menu_id=i.id)}}"><button type="button" class="btn btn-default">Delete</button></a>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>

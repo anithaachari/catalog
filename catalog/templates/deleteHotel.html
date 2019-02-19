@@ -1,0 +1,12 @@
+{% include 'hotels.html' %}
+<div class="main">
+{% block content %}
+
+	<h1 style="color: green;">Are you sure you want to delete {{hotel.name}}?</h1>
+	<form action ="#" method='post'>
+		<input type="submit" value="delete">
+		</form><br> 
+<a href='{{url_for('showMenu')}}'><button>Cancel</button></a>
+
+{% endblock content %}
+</div>

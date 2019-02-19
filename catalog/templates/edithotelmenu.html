@@ -1,0 +1,23 @@
+{% include 'hotels.html' %}
+<div class="main">
+{% block content %}
+<h1 style="color: green;">Edit Hotel Menu</h1>
+<div class="pane">
+	<form action="{{url_for('editHotelMenu',hotel_id=hotel_id,menu_id=item.id)}}"method='post'>
+	<dl>
+		<dt><h4><b>Name:</b></h4></dt>
+		<dd><input type="text" size='20' name="name" value='{{item.name}}'></dd>
+		<dt><h4><b>Price:</b></h4></dt>
+		<dd><input type="text"size='10' name="price" value="{{item.price}}"></dd>
+		<dt><h4><b>Description:</b></h4></dt>
+		<dd><input type="text" size='50' name="description" value="{{item.description}}"></dd>
+		<dt><h4><b>Address:</b></h4></dt>
+		<dd><input type="text" size='100' name="Address" value="{{item.Address}}"></dd>
+	</dl>
+	<input type="submit" name="edit">
+	</form><br>
+   <a href="{{url_for('showHotelMenu',hotel_id=hotel_id)}}" style="inline:block;"><button>Cancel</button></a>
+	
+</div>
+{% endblock content %}
+</div>
