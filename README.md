@@ -1,12 +1,12 @@
-## Item Catalog Web App
+# Item Catalog Web App
 
-# By Kuduthuru Anitha This web app is a project for the Udacity FSND Course.
+## By Kuduthuru Anitha This web app is a project for the Udacity FSND Course.
 
 About
 
 This project is a RESTful web application utilizing the Flask framework which accesses a SQL database that populates hotels and hotelmenus. OAuth2 provides authentication for further CRUD functionality on the application. Currently OAuth2 is implemented for Google Accounts.
 
-# In This Project
+## In This Project
 
 This project has one main Python module project.py which runs the Flask application. A SQL database is created using the database_setup.py module and you can populate the database with test data using hoteldata.py. The Flask application uses stored HTML templates in the templates folder to build the front-end of the application.
 
